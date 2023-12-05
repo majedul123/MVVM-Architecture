@@ -2,7 +2,7 @@ package com.majedul.mvvm.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class TopHeadlinesResponse(
+data class DataResponse(
     @SerializedName("status")
     val status: String = "",
     @SerializedName("totalResults")

@@ -7,11 +7,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import com.majedul.mvvm.data.model.Article
-import com.majedul.mvvm.data.repository.TopHeadlineRepository
+import com.majedul.mvvm.data.repository.DataRepository
 import com.majedul.mvvm.ui.base.UiState
 import com.majedul.mvvm.utils.AppConstant.COUNTRY
 
-class TopHeadlineViewModel(private val topHeadlineRepository: TopHeadlineRepository) : ViewModel() {
+class SearchViewModel(private val topHeadlineRepository: DataRepository) : ViewModel() {
 
     private val _uiState = MutableStateFlow<UiState<List<Article>>>(UiState.Loading)
 

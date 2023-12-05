@@ -4,7 +4,7 @@ import android.content.Context
 import dagger.Component
 import com.majedul.mvvm.MVVMApplication
 import com.majedul.mvvm.data.api.NetworkService
-import com.majedul.mvvm.data.repository.TopHeadlineRepository
+import com.majedul.mvvm.data.repository.DataRepository
 import com.majedul.mvvm.di.ApplicationContext
 import com.majedul.mvvm.di.module.ApplicationModule
 import javax.inject.Singleton
@@ -20,6 +20,6 @@ interface ApplicationComponent {
 
     fun getNetworkService(): NetworkService
 
-    fun getTopHeadlineRepository(): TopHeadlineRepository
+    fun getTopHeadlineRepository(): DataRepository
 
 }

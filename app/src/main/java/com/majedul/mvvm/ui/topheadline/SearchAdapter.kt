@@ -10,9 +10,9 @@ import com.majedul.mvvm.data.model.Article
 import com.majedul.mvvm.databinding.TopHeadlineItemLayoutBinding
 
 
-class TopHeadlineAdapter(
+class SearchAdapter(
     private val articleList: ArrayList<Article>
-) : RecyclerView.Adapter<TopHeadlineAdapter.DataViewHolder>() {
+) : RecyclerView.Adapter<SearchAdapter.DataViewHolder>() {
 
     class DataViewHolder(private val binding: TopHeadlineItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {

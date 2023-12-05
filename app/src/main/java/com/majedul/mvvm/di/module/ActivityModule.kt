@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import dagger.Module
 import dagger.Provides
-import com.majedul.mvvm.data.repository.TopHeadlineRepository
+import com.majedul.mvvm.data.repository.DataRepository
 import com.majedul.mvvm.di.ActivityContext
 import com.majedul.mvvm.ui.base.ViewModelProviderFactory
-import com.majedul.mvvm.ui.topheadline.TopHeadlineAdapter
-import com.majedul.mvvm.ui.topheadline.TopHeadlineViewModel
+import com.majedul.mvvm.ui.topheadline.SearchAdapter
+import com.majedul.mvvm.ui.topheadline.SearchViewModel
 
 @Module
 class ActivityModule(private val activity: AppCompatActivity) {
@@ -21,14 +21,14 @@ class ActivityModule(private val activity: AppCompatActivity) {
     }
 
     @Provides
-    fun provideTopHeadlineViewModel(topHeadlineRepository: TopHeadlineRepository): TopHeadlineViewModel {
+    fun provideTopHeadlineViewModel(topHeadlineRepository: DataRepository): SearchViewModel {
         return ViewModelProvider(activity,
-            ViewModelProviderFactory(TopHeadlineViewModel::class) {
-                TopHeadlineViewModel(topHeadlineRepository)
-            })[TopHeadlineViewModel::class.java]
+            ViewModelProviderFactory(SearchViewModel::class) {
+                SearchViewModel(topHeadlineRepository)
+            })[SearchViewModel::class.java]
     }
 
     @Provides
-    fun provideTopHeadlineAdapter() = TopHeadlineAdapter(ArrayList())
+    fun provideTopHeadlineAdapter() = SearchAdapter(ArrayList())
 
 }

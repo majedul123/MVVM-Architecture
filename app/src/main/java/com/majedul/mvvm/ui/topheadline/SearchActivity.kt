@@ -18,13 +18,13 @@ import com.majedul.mvvm.ui.base.UiState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class TopHeadlineActivity : AppCompatActivity() {
+class SearchActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var topHeadlineViewModel: TopHeadlineViewModel
+    lateinit var searchViewModel: SearchViewModel
 
     @Inject
-    lateinit var adapter: TopHeadlineAdapter
+    lateinit var adapter: SearchAdapter
 
     private lateinit var binding: ActivityTopHeadlineBinding
 
@@ -52,7 +52,7 @@ class TopHeadlineActivity : AppCompatActivity() {
     private fun setupObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                topHeadlineViewModel.uiState.collect {
+                searchViewModel.uiState.collect {
                     when (it) {
                         is UiState.Success -> {
                             binding.progressBar.visibility = View.GONE
@@ -66,7 +66,7 @@ class TopHeadlineActivity : AppCompatActivity() {
                         is UiState.Error -> {
                             //Handle Error
                             binding.progressBar.visibility = View.GONE
-                            Toast.makeText(this@TopHeadlineActivity, it.message, Toast.LENGTH_LONG)
+                            Toast.makeText(this@SearchActivity, it.message, Toast.LENGTH_LONG)
                                 .show()
                         }
                     }
